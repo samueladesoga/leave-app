@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160912155819) do
+ActiveRecord::Schema.define(version: 20190306222136) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "leave_requests", force: :cascade do |t|
+    t.date     "commence"
+    t.date     "end"
+    t.text     "reason"
+    t.boolean  "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "patrons_id"
+    t.index ["patrons_id"], name: "index_leave_requests_on_patrons_id", using: :btree
+  end
 
   create_table "patrons", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -49,4 +60,5 @@ ActiveRecord::Schema.define(version: 20160912155819) do
     t.index ["reset_password_token"], name: "index_patrons_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "leave_requests", "patrons", column: "patrons_id"
 end

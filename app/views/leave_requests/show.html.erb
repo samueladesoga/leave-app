@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Commence:</strong>
+  <%= @leave_request.commence %>
+</p>
+
+<p>
+  <strong>End:</strong>
+  <%= @leave_request.end %>
+</p>
+
+<p>
+  <strong>Reason:</strong>
+  <%= @leave_request.reason %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @leave_request.status %>
+</p>
+
+<%= link_to 'Edit', edit_leave_request_path(@leave_request) %> |
+<%= link_to 'Back', leave_requests_path %>

@@ -1,0 +1,37 @@
+<%= form_for(leave_request) do |f| %>
+  <% if leave_request.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(leave_request.errors.count, "error") %> prohibited this leave_request from being saved:</h2>
+
+      <ul>
+      <% leave_request.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :commence %>
+    <%= f.date_select :commence %>
+  </div>
+
+  <div class="field">
+    <%= f.label :end %>
+    <%= f.date_select :end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :reason %>
+    <%= f.text_area :reason %>
+  </div>
+
+  <div class="field">
+    <%= f.label :status %>
+    <%= f.check_box :status %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
