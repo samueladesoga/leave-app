@@ -36,6 +36,9 @@
                   <%= link_to 'Home', root_path, :class => "nav-link" %>
                 </li>
                 <li class="nav-item">
+                  <%= link_to 'Who\'s off?', leave_requests_path , :class => "nav-link" %>
+                </li>
+                <li class="nav-item">
                   <%= link_to 'Create Leave Request', new_leave_request_path , :class => "nav-link" %>
                 </li>
                 <% if current_user %>

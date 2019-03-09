@@ -1,10 +1,34 @@
 
 <div class="row">
   <div class="col-sm-12 text-xs-center bootstrap-welcome">
-    <h3 class="section-title text-center m-5">Welcome <%= current_user.email %></h3>
-    <p><%= link_to 'Edit Profile', edit_user_registration_path(current_user) %></p>
-    <p><%= link_to 'Create Leave Request', new_leave_request_path %></p>
-    <p><%= link_to 'Logout', eval("destroy_#{current_user.type.downcase}_session_path"), method: :delete %></p>
+    <h3 class="section-title text-center m-5">Welcome back <%= current_user.email %></h3>
 
+    <h1>Your Leave Requests</h1>
+
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Commence</th>
+	      <th>End</th>
+	      <th>Reason</th>
+	      <th>Status</th>
+	      <th colspan="3"></th>
+	    </tr>
+	  </thead>
+
+	  <tbody>
+	    <% @leave_requests.each do |leave_request| %>
+	      <tr>
+	        <td><%= leave_request.commence %></td>
+	        <td><%= leave_request.end %></td>
+	        <td><%= leave_request.reason %></td>
+	        <td><%= leave_request.status %></td>
+	        <td><%= link_to 'Show', leave_request %></td>
+	        <td><%= link_to 'Edit', edit_leave_request_path(leave_request) %></td>
+	        <td><%= link_to 'Destroy', leave_request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	      </tr>
+	    <% end %>
+	  </tbody>
+	</table>
   </div>
 </div>
