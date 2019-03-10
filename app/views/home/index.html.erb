@@ -20,7 +20,7 @@
 	    <% @leave_requests.each do |leave_request| %>
 	      <tr>
 	        <td><%= leave_request.commence %></td>
-	        <td><%= leave_request.end %></td>
+	        <td><%= leave_request.end_date %></td>
 	        <td><%= leave_request.reason %></td>
 	        <td><%= leave_request.status %></td>
 	        <td><%= link_to 'Show', leave_request %></td>

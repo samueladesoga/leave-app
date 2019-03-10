@@ -1,5 +1,5 @@
 ActiveAdmin.register User do
-  permit_params :email
+  permit_params :email, :first_name, :last_name
 
   controller do
     def create
@@ -16,6 +16,8 @@ ActiveAdmin.register User do
     selectable_column
     id_column
     column :email
+    column :first_name
+    column :last_name
     column :current_sign_in_at
     column :sign_in_count
     column :created_at
@@ -24,6 +26,8 @@ ActiveAdmin.register User do
   end
 
   filter :email
+  filter :first_name
+  filter :last_name
   filter :current_sign_in_at
   filter :sign_in_count
   filter :created_at
@@ -32,6 +36,8 @@ ActiveAdmin.register User do
   form do |f|
     f.inputs "Invite User #{current_admin.inspect}" do
       f.input :email
+      f.input :first_name
+      f.input :last_name
     end
     f.actions
   end

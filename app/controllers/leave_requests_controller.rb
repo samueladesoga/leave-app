@@ -15,11 +15,15 @@ class LeaveRequestsController < InheritedResources::Base
       end
   end
 
+  def index
+  	@leave_requests = LeaveRequest.all.where("end_date >= ?", Date.today)
+  end
+
 
   private
 
     def leave_request_params
-      params.require(:leave_request).permit(:commence, :end, :reason)
+      params.require(:leave_request).permit(:commence, :end_date, :reason)
     end
 end
 
