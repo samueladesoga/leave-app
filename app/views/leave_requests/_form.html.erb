@@ -1,32 +1,41 @@
-<%= form_for(leave_request) do |f| %>
-  <% if leave_request.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(leave_request.errors.count, "error") %> prohibited this leave_request from being saved:</h2>
+<div class="col-lg-8 col-md-10 ml-auto mr-auto">
+  <div class="row mb-5">
+    <div class="col-md-12">
+      <%= form_for(leave_request) do |f| %>
+        <% if leave_request.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(leave_request.errors.count, "error") %> prohibited this leave_request from being saved:</h2>
 
-      <ul>
-      <% leave_request.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+            <ul>
+            <% leave_request.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="row">
+          <div class="form-group col-md-6">
+            <%= f.label :commence, class: "col-form-label" %>
+            <%= f.date_select :commence, class: "form-control" %>
+          </div>
+          <div class="form-group col-md-6">
+            <%= f.label :end_date, class: "col-form-label" %>
+            <%= f.date_select :end_date, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group col-md-12">
+            <%= f.label :reason, class: "col-form-label" %>
+            <%= f.text_area :reason, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="actions">
+          <%= f.submit nil, :class => 'btn btn-primary btn-pill btn-lg d-table ml-auto mr-auto' %>
+        </div>
       <% end %>
-      </ul>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :commence %>
-    <%= f.date_select :commence %>
   </div>
-
-  <div class="field">
-    <%= f.label :end_date %>
-    <%= f.date_select :end_date %>
-  </div>
-
-  <div class="field">
-    <%= f.label :reason %>
-    <%= f.text_area :reason %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

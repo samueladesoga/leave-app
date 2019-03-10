@@ -18,55 +18,43 @@
         <%= csrf_meta_tags %>
     </head>
     <body class="shards-app-promo-page--1">
-      <!-- Welcome Section -->
-      <div class="welcome d-flex justify-content-center flex-column">
-        <div class="container">
-          <!-- Navigation -->
-          <nav class="navbar navbar-expand-lg navbar-dark pt-4 px-0">
-            <a class="navbar-brand mr-5" href="#">
-              <img src="images/app-promo/shards-logo-green.svg" class="mr-2" alt="OOZ Leave Request App">
-              OOZ Leave Request App
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-              <ul class="navbar-nav">
-                <li class="nav-item active">
-                  <%= link_to 'Home', root_path, :class => "nav-link" %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to 'Who\'s off?', leave_requests_path , :class => "nav-link" %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to 'Create Leave Request', new_leave_request_path , :class => "nav-link" %>
-                </li>
-                <% if current_user %>
-                  <li class="nav-item">
-                    <%= link_to 'Edit Profile', edit_user_registration_path(current_user), :class => "nav-link" %>
-                  </li>
-                  <li class="nav-item">          
-                    <%= link_to 'Logout', eval("destroy_#{current_user.type.downcase}_session_path"), method: :delete, :class => "nav-link" %>
-                  </li>
-                <% end %>
-              </ul>
-            </div>
-          </nav>
-          <!-- / Navigation -->
-        </div> <!-- .container -->
-      </div>
-
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+        <a class="navbar-brand mr-5" href="/">
+          <%= image_tag "ooz_logo.png", class: "mr-2", alt: "OOZ Leave Request App" %>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <%= link_to 'Home', root_path, :class => "nav-link" %>
+            </li>
+            <% if current_user %>
+              <li class="nav-item">
+                <%= link_to 'Who\'s off?', leave_requests_path , :class => "nav-link" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'Create Leave Request', new_leave_request_path , :class => "nav-link" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'Edit Profile', edit_user_registration_path(current_user), :class => "nav-link" %>
+              </li>
+              <li class="nav-item">          
+                <%= link_to 'Logout', eval("destroy_#{current_user.type.downcase}_session_path"), method: :delete, :class => "nav-link" %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </nav>
       <div class="section-invert py-4">
         <%= render partial: 'shared/flash' unless flash.empty? %>
         <%= yield %>
       </div>
       <!-- Footer Section -->
-      <footer>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-          <div class="container">
-          </div>
-        </nav>
-      </footer>
+    <footer class="main-footer py-5">
+      <p class="text-muted text-center small p-0 mb-4">© Copyright 2019 — Leave Request Application designed by <a href="www.thoughtstudiosng.com">ThoughtStudios Limited.</a></p>
+    </footer>
       <!-- / Footer Section -->
 
       <!-- JavaScript Dependencies -->
