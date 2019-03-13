@@ -18,8 +18,8 @@
         <tr>
           <td><%= leave_request.patron.first_name %></td>
           <td><%= leave_request.patron.last_name %></td>
-          <td><%= leave_request.commence %></td>
-          <td><%= leave_request.end_date %></td>
+          <td><%= leave_request.commence.strftime("%A, %B %d, %Y") %></td>
+          <td><%= leave_request.end_date.strftime("%A, %B %d, %Y") %></td>
         </tr>
       <% end %>
     </tbody>

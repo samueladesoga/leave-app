@@ -4,11 +4,13 @@ ActiveAdmin.register LeaveRequest do
   index do
     selectable_column
     id_column
-    column :name
+    column :name, :sortable => :id do |leave_request|
+       leave_request.patron.full_name
+     end
     column :commence
     column :end_date
     column :reason
-    column :status
+    column :approved
     actions
   end
 
@@ -16,6 +18,6 @@ ActiveAdmin.register LeaveRequest do
   filter :commence
   filter :end
   filter :reason
-  filter :status
+  filter :approved
 
 end
