@@ -1,5 +1,5 @@
 ActiveAdmin.register LeaveRequest do
-  permit_params :status
+  permit_params :approved, :commence, :end_date
 
   index do
     selectable_column
@@ -16,7 +16,7 @@ ActiveAdmin.register LeaveRequest do
 
   filter :name
   filter :commence
-  filter :end
+  filter :end_date
   filter :reason
   filter :approved
 
