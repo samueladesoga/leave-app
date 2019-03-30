@@ -46,8 +46,12 @@
         </div>
       </nav>
       <div class="section-invert py-4">
-        <%= render partial: 'shared/flash' unless flash.empty? %>
-        <%= yield %>
+        <div class="row">
+          <div class="col-sm-12 text-xs-center bootstrap-welcome">
+            <%= render partial: 'shared/flash' unless flash.empty? %>
+            <%= yield %>
+          </div>
+        </div>
       </div>
       <!-- Footer Section -->
     <footer class="main-footer py-5">

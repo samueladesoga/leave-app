@@ -1,31 +1,27 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Leave Requests</h1>
-
-<div class="col-md-10 ml-auto mr-auto">
-  <table class="table table-striped table-responsive-md">
-    <thead>
-      <tr>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Start Date</th>
-        <th>End Date</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @leave_requests.each do |leave_request| %>
+<h3 class="section-title text-center m-5">Leave Requests</h3>
+  <p id="notice"><%= notice %></p>
+  <div class="col-md-10 ml-auto mr-auto">
+    <table class="table table-striped table-responsive-md">
+      <thead>
         <tr>
-          <td><%= leave_request.patron.first_name %></td>
-          <td><%= leave_request.patron.last_name %></td>
-          <td><%= leave_request.commence.strftime("%A, %B %d, %Y") %></td>
-          <td><%= leave_request.end_date.strftime("%A, %B %d, %Y") %></td>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Start Date</th>
+          <th>End Date</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+      </thead>
 
-<br>
-
-<%= link_to 'New Leave Request', new_leave_request_path %>
+      <tbody>
+        <% @leave_requests.each do |leave_request| %>
+          <tr>
+            <td><%= leave_request.patron.first_name %></td>
+            <td><%= leave_request.patron.last_name %></td>
+            <td><%= leave_request.commence.strftime("%A, %B %d, %Y") %></td>
+            <td><%= leave_request.end_date.strftime("%A, %B %d, %Y") %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= link_to 'New Leave Request', new_leave_request_path, :class => 'btn btn-primary btn-lg d-table ml-auto mr-auto' %>
+  </div>
+  <br>    
