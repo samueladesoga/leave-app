@@ -93,9 +93,9 @@ Rails.application.configure do
       :authentication => :plain,
       :address => 'email-smtp.us-east-1.amazonaws.com',
       :port => 587,
-      :domain => ENV['SENDGRID_DOMAIN'],
-      :user_name => ENV['SENDGRID_USERNAME'],
-      :password => ENV['SENDGRID_PASSWORD'],
+      :domain => ENV['MAIL_DOMAIN'],
+      :user_name => ENV['MAIL_USERNAME'],
+      :password => ENV['MAIL_PASSWORD'],
       :enable_starttls_auto => true
   }
 
