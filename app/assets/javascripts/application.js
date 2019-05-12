@@ -13,7 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+//= require demo.min
+//= require shards.min
 
 // tether.js must be included before bootstrap.js
 // for more refenrence http://v4-alpha.getbootstrap.com/components/tooltips/
