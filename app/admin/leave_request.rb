@@ -1,11 +1,18 @@
 ActiveAdmin.register LeaveRequest do
-  permit_params :approved, :commence, :end_date
+  permit_params :status, :commence, :end_date, :patron_id, :reason
 
   batch_action :approve do |ids|
     batch_action_collection.find(ids).each do |leave_request|
-      leave_request.update_attributes(:approved => true)
+      leave_request.approve!
     end
     redirect_to collection_path, alert: "The leave requests have been approved"
+  end
+
+  batch_action :reject do |ids|
+    batch_action_collection.find(ids).each do |leave_request|
+      leave_request.reject!
+    end
+    redirect_to collection_path, alert: "The leave requests have been rejected"
   end
 
   index do
@@ -17,7 +24,7 @@ ActiveAdmin.register LeaveRequest do
     column :commence
     column :end_date
     column :reason
-    column :approved
+    column :status
     actions
   end
 
@@ -25,6 +32,6 @@ ActiveAdmin.register LeaveRequest do
   filter :commence
   filter :end_date
   filter :reason
-  filter :approved
+  filter :status, as: :select, collection: LeaveRequest.statuses
 
 end

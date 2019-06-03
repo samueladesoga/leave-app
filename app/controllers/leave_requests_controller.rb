@@ -16,7 +16,7 @@ class LeaveRequestsController < InheritedResources::Base
   end
 
   def index
-  	@leave_requests = LeaveRequest.all.where("end_date >= ?", Date.today)
+  	@leave_requests = LeaveRequest.all.where("end_date >= ? and status = ?", Date.today, 1)
   end
 
 

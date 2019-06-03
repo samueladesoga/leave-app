@@ -22,7 +22,7 @@
 		        <td><%= leave_request.commence.strftime("%A, %B %d, %Y") %></td>
 		        <td><%= leave_request.end_date.strftime("%A, %B %d, %Y") %></td>
 		        <td><%= leave_request.reason %></td>
-		        <td><%= leave_request.approved %></td>
+		        <td><%= leave_request.status %></td>
 		        <td><%= link_to 'Edit', edit_leave_request_path(leave_request) %></td>
 		      </tr>
 		    <% end %>

@@ -14,7 +14,7 @@ ActiveAdmin.register_page "Dashboard" do
     #
     columns do
       column do
-        panel "Recent Posts" do
+        panel "Recent Leave Request" do
           ul do
             LeaveRequest.pending_approval.map do |leave|
               li link_to(leave.patron.full_name, admin_leave_requests_url)

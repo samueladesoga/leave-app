@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190313211730) do
+ActiveRecord::Schema.define(version: 20190603143041) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,10 +19,10 @@ ActiveRecord::Schema.define(version: 20190313211730) do
     t.date     "commence"
     t.date     "end_date"
     t.text     "reason"
-    t.boolean  "approved",   default: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.integer  "patron_id"
+    t.integer  "status",     default: 0
     t.index ["patron_id"], name: "index_leave_requests_on_patron_id", using: :btree
   end
 
