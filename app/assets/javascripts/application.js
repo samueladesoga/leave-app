@@ -20,3 +20,4 @@
 // for more refenrence http://v4-alpha.getbootstrap.com/components/tooltips/
 //= require tether.min.js
 //= require bootstrap
+//= require bootstrap-datepicker
