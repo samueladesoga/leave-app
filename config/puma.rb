@@ -32,4 +32,8 @@ on_worker_boot do
   end
 end
 
+on_restart do
+  Sidekiq.redis.shutdown { |conn| conn.close }
+end
+
 plugin :tmp_restart

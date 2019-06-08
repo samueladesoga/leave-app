@@ -54,7 +54,21 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   #default url options
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  #config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  config.action_mailer.default_url_options = { host: ENV['MAIL_DOMAIN'] }
+
+  #smtp settings
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+      :authentication => :plain,
+      :address => 'email-smtp.us-east-1.amazonaws.com',
+      :port => 587,
+      :domain => ENV['MAIL_DOMAIN'],
+      :user_name => ENV['MAIL_USERNAME'],
+      :password => ENV['MAIL_PASSWORD'],
+      :enable_starttls_auto => true
+  }
 
   # showing mail in browser
   config.action_mailer.delivery_method = :letter_opener
