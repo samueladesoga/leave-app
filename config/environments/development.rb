@@ -71,5 +71,5 @@ Rails.application.configure do
   }
 
   # showing mail in browser
-  config.action_mailer.delivery_method = :letter_opener
+  #config.action_mailer.delivery_method = :letter_opener
 end
