@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  require 'sidekiq/web'
 
   #resources :users do 
     
@@ -16,5 +17,6 @@ Rails.application.routes.draw do
     puts "ActiveAdmin: #{e.class}: #{e}"
   end
   root to: "home#index"
+  mount Sidekiq::Web => '/sidekiq'
 
 end
