@@ -20,6 +20,7 @@ Rails.application.configure do
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
+  config.active_job.queue_adapter = :sidekiq
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
@@ -85,7 +86,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   #default url options
-  config.action_mailer.default_url_options = { host: 'leave-app.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: ENV['MAIL_DOMAIN'] }
 
   #smtp settings
   config.action_mailer.delivery_method = :smtp

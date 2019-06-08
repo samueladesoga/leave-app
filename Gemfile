@@ -32,6 +32,7 @@ gem 'jbuilder', '~> 2.5'
 
 # for user authentication
 gem 'devise'
+gem 'sidekiq', '~> 5.0', '>= 5.0.5'
 
 # invitation model integrated
 gem 'devise_invitable'
