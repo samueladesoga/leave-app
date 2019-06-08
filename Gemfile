@@ -31,6 +31,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 # for user authentication
+gem 'redis'
 gem 'devise'
 gem 'sidekiq', '~> 5.0', '>= 5.0.5'
 
