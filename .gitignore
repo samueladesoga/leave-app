@@ -18,6 +18,7 @@ dump.rdb
 test
 .idea/
 /public/assets/
+.env
 
 # Ignore application configuration
 /config/application.yml

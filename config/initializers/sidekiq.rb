@@ -11,8 +11,8 @@ if Rails.env.production? || Rails.env.staging?
 		ActiveSupport.on_load(:active_record) do
 		  config = ActiveRecord::Base.configurations[Rails.env] ||
                 Rails.application.config.database_configuration[Rails.env]
-		  config['reaping_frequency'] = ENV.fetch('DB_REAP_FREQ') || 10 # seconds
-		  config['pool'] = ENV.fetch('DB_POOL') || Sidekiq.options[:concurrency]
+		  config['reaping_frequency'] = ENV['DB_REAP_FREQ'] || 10 # seconds
+		  config['pool'] = ENV['DB_POOL'] || Sidekiq.options[:concurrency]
 		  ActiveRecord::Base.establish_connection(config)
 
 		  Rails.logger.info("Connection Pool size for Sidekiq Server is now: #{ActiveRecord::Base.connection.pool.instance_variable_get('@size')}")
@@ -28,8 +28,8 @@ if Rails.env.production? || Rails.env.staging?
 	    ActiveSupport.on_load(:active_record) do
 	      config = ActiveRecord::Base.configurations[Rails.env] ||
                 Rails.application.config.database_configuration[Rails.env]
-	      config['reaping_frequency'] = ENV.fetch('DB_REAP_FREQ') || 10 # seconds
-	      config['pool'] = ENV.fetch('DB_POOL') || 10
+	      config['reaping_frequency'] = ENV['DB_REAP_FREQ'] || 10 # seconds
+	      config['pool'] = ENV['DB_POOL'] || 10
 	      ActiveRecord::Base.establish_connection(config)
 
 	      # DB connection not available during slug compliation on Heroku
