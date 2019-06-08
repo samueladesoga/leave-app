@@ -15,15 +15,7 @@ environment ENV.fetch("RAILS_ENV") { "development" }
 # http://www.rubydoc.info/gems/puma/2.14.0/Puma%2FDSL%3Abefore_fork
 # Dont have to worry about Sidekiq's connection to Redis because connections are only created when needed. As long as we are not
 # queuing workers when rails is booting, there will be no redis connections to disconnect, so it should be fine.
-before_fork do  
-  require 'puma_worker_killer'
-  PumaWorkerKiller.config do |config|
-      config.ram           = 1024 # mb
-      config.frequency     = 60    # seconds
-      config.percent_usage = 0.98
-      config.rolling_restart_frequency = 12 * 3600 # 12 hours in seconds
-    end
-  PumaWorkerKiller.start
+before_fork do
   puts "Puma master process about to fork. Closing existing Active record connections."
   ActiveRecord::Base.connection.disconnect!
 end
