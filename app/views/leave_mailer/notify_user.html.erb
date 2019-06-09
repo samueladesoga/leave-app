@@ -1,9 +1,9 @@
-Dear <%= @order.user.first_name ? @order.user.first_name.titleize : @order.user.name.titleize %>,
+Dear <%= @user.first_name.titleize %>, <br>
 
-Thank you once again for your TShirts from Yangah.com; we are now in the process of printing your TShirts and as soon as your TShirts are dispatched to you, you would receive another email from us.
+Thank you for using the leave application. <br>
+Your leave has been <%= @status %>. <br>
+Contact the administrator if you need more information  <br>
 
-If you need to contact us, your transaction Number is <%= @order.payment_histories.last.orig_transaction_id %>.
+Regards, <br>
 
-Regards, 
-
-Yangah Team.
+Admin.
