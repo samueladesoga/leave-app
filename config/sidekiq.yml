@@ -1,5 +1,6 @@
----
-:concurrency: 5
+:verbose: true
+:timeout: 15
+:concurrency: 2
 :queues:
-  - default
-  - mailers
+- [mailer, 7]
+- [default, 5]
