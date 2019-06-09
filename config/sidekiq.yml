@@ -2,5 +2,5 @@
 :timeout: 15
 :concurrency: 2
 :queues:
-- [mailer, 7]
+- [mailers, 7]
 - [default, 5]
