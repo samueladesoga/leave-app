@@ -28,6 +28,10 @@
             <li class="nav-item active">
               <%= link_to 'Home', root_path, :class => "nav-link" %>
             </li>
+            <li class="nav-item active">
+              <%= link_to 'Admin', new_admin_session_path, :class => "nav-link" %>
+            </li>
+
             <% if current_user %>
               <li class="nav-item">
                 <%= link_to 'Who\'s off?', leave_requests_path , :class => "nav-link" %>
