@@ -66,5 +66,6 @@ gem 'activeadmin', github: 'activeadmin' #refer https://github.com/activeadmin/a
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'stateful_enum', '~> 0.4.0'
 gem 'bootstrap-datepicker-rails'
+gem 'arctic_admin'
 # for deploying the application on heroku.
 gem "figaro"
