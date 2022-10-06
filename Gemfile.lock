@@ -1,6 +1,6 @@
 GIT
-  remote: git://github.com/activeadmin/activeadmin.git
-  revision: 19e096a14357203a24fa7a1313daf8c8f08b7971
+  remote: https://github.com/activeadmin/activeadmin.git
+  revision: 3b27a69d771f52f8e86b769406f97b438ac26ae6
   specs:
     activeadmin (2.0.0)
       arbre (~> 1.2, >= 1.2.1)
@@ -16,8 +16,8 @@ GIT
       sprockets-es6 (~> 0.9, >= 0.9.2)
 
 GIT
-  remote: git://github.com/activeadmin/inherited_resources.git
-  revision: bd6aeddcd5daa9b0eab3278e72988f433ba25d2a
+  remote: https://github.com/activeadmin/inherited_resources.git
+  revision: 92f25816be9a051956a54b9d7a9270e86b3e9670
   specs:
     inherited_resources (1.10.0)
       actionpack (>= 5.0, < 6.0)
@@ -65,8 +65,8 @@ GEM
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
-    addressable (2.6.0)
-      public_suffix (>= 2.0.2, < 4.0)
+    addressable (2.8.1)
+      public_suffix (>= 2.0.2, < 6.0)
     arbre (1.2.1)
       activesupport (>= 3.0.0)
     arctic_admin (3.0.0)
@@ -166,7 +166,7 @@ GEM
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
     pg (1.1.4)
-    public_suffix (3.0.3)
+    public_suffix (4.0.7)
     puma (3.12.1)
     rack (2.0.7)
     rack-contrib (2.1.0)
